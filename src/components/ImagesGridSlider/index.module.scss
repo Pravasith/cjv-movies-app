@@ -1,0 +1,72 @@
+.container {
+    @apply w-full;
+
+    .imageSlideShowContainer {
+        @apply w-full my-2;
+    }
+
+    .slideShowHeader {
+        @apply w-full min-w-full justify-between;
+    }
+
+    .outerSlideWrap {
+        @apply w-full py-2 overflow-hidden;
+    }
+
+    .actualSlideWrappers {
+        @apply min-w-full;
+
+        a {
+            @apply w-full;
+        }
+    }
+
+    .slideWrap {
+        @apply cursor-pointer transition;
+
+        &:hover {
+            @apply -translate-y-3;
+
+            .actualPic {
+                @apply w-130% h-130% origin-center;
+            }
+
+            .slideBgd {
+                @apply bg-blue-400;
+            }
+
+            p {
+                @apply text-black font-bold;
+            }
+        }
+    }
+
+    .slideInnerWrap {
+        @apply w-full h-full p-1 text-center;
+    }
+
+    .slideBgd {
+        @apply transition duration-200 bg-gray-900 h-full rounded-2xl;
+    }
+
+    .picWrap {
+        @apply w-full pt-[100%] overflow-hidden rounded-2xl;
+    }
+
+    .actualPic {
+        @apply ease-out w-full h-full origin-center object-cover;
+        transition: 0.2s;
+    }
+
+    .footer {
+        @apply max-w-full h-1/4 p-2;
+
+        p {
+            @apply overflow-hidden text-white w-full text-ellipsis whitespace-nowrap font-normal px-3;
+        }
+    }
+
+    .heading2 {
+        @apply font-extrabold text-2xl;
+    }
+}
