@@ -40,6 +40,8 @@ const ImagesGridSlider = props => {
     const slidesWrapper = useRef()
     const currentSlideIteration = useRef(0)
 
+    useEffect(() => {}, [])
+
     useEffect(() => {
         const { maxSlides } = props
 
@@ -193,21 +195,24 @@ const ImagesGridSlider = props => {
                     <h2 className={`${styles.heading2}`}>{props.title}</h2>
 
                     <div className={`${styles.leftRight} flex-row-center`}>
-                        <Icon
-                            src={leftArrow}
-                            rotate
-                            onClick={() => {
-                                slide("left")
-                            }}
-                        />
+                        {!disabledButton.left && (
+                            <Icon
+                                src={leftArrow}
+                                onClick={() => {
+                                    slide("left")
+                                }}
+                            />
+                        )}
 
-                        <Icon
-                            src={leftArrow}
-                            rotate
-                            onClick={() => {
-                                slide("right")
-                            }}
-                        />
+                        {!disabledButton.right && (
+                            <Icon
+                                src={leftArrow}
+                                rotate
+                                onClick={() => {
+                                    slide("right")
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
 
