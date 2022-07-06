@@ -1,7 +1,9 @@
+import HeroSection from "../HeroSection"
+
 const Home = () => {
     return (
         <div className="flex-row-center w-full ">
-            <h1>HELLO CJV!</h1>
+            <HeroSection />
         </div>
     )
 }
