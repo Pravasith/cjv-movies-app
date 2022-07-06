@@ -1,12 +1,4 @@
-//      -----------------------------------------------------------------------------------------------------
-//      --  ---------------------------------------------------------------------------------------------  --
-//      --  --      IMPORTANT NOTE: CHANGE THE NUMBER OF SLIDES                                        --  --
-//      --  --      YOU WANT TO SEE PER SET IN THE SASS FILE.                                          --  --
-//      --  --      EDIT THE VARIABLE CALLED '$noOfSlides'                                             --  --
-//      --  ---------------------------------------------------------------------------------------------  --
-//      -----------------------------------------------------------------------------------------------------
-
-import { memo, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 
 import leftArrow from "../../assets/images/left.webp"
@@ -16,7 +8,7 @@ import styles from "./index.module.scss"
 import Icon from "../UI/Icon"
 import { Link } from "react-router-dom"
 
-// interface ImgData {
+// ImgData {
 //     title: string
 //     url: string
 //     id: string

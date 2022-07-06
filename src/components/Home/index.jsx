@@ -30,8 +30,15 @@ const Home = () => {
             <HeroSection />
 
             <ImagesGridSlider
-                id={"x"}
-                title={"Featured Films"}
+                id={"featured-movies"}
+                title={"Featured Movies"}
+                pictures={imageData}
+                maxSlides={4}
+            />
+
+            <ImagesGridSlider
+                id={"featured-tv-shows"}
+                title={"Featured TV Shows"}
                 pictures={imageData}
                 maxSlides={4}
             />
