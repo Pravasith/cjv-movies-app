@@ -16,6 +16,10 @@ const Header = () => {
         dispatch({ type: "LOGIN_CLICKED", payload: true })
     }
 
+    const onSignUp = () => {
+        dispatch({ type: "SIGNUP_CLICKED", payload: true })
+    }
+
     const onLogout = () => {
         dispatch({
             type: "USER_LOGGED_IN",
@@ -58,6 +62,19 @@ const Header = () => {
                         <h3 className="px-4 py-1 hover:underline cursor-pointer">
                             <Link to="/settings">{"Settings"}</Link>
                         </h3>
+
+                        {!globalState.userProfile.fullName && (
+                            <h3
+                                onClick={
+                                    globalState.userProfile.fullName
+                                        ? onLogout
+                                        : onSignUp
+                                }
+                                className="px-4 py-1 hover:underline cursor-pointer"
+                            >
+                                {"Register"}
+                            </h3>
+                        )}
 
                         <h3
                             onClick={

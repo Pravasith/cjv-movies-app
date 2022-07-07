@@ -1,15 +1,20 @@
-import Modal from "../Modal"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import AppContext from "../../contexts/AppContext"
+import { useModal } from "../../hooks/useModal"
 
-const Signup = props => {
-    const { dispatch } = useContext(AppContext)
+const SignUp = props => {
+    const { globalState, dispatch } = useContext(AppContext)
+
     const data = {
-        title: "Login to MovieFlix",
+        title: "Register to MovieFlix",
         labels: [
             {
                 name: "username",
                 title: "Enter Username",
+            },
+            {
+                name: "fullName",
+                title: "Enter Full Name",
             },
             {
                 name: "password",
@@ -17,13 +22,25 @@ const Signup = props => {
             },
         ],
         submitHandler: values => {
-            //void
             dispatch({
-                type: "USER_LOGGED_IN",
-                payload: { fullName: values.username },
+                type: "USER_SIGNED_IN",
+                payload: { fullName: values.fullName },
+            })
+        },
+        onCloseModal: () => {
+            dispatch({
+                type: "SIGNUP_CLICKED",
+                payload: false,
             })
         },
     }
+
+    const { Modal, openModal } = useModal()
+
+    useEffect(() => {
+        if (globalState.showSignUp) openModal()
+    }, [globalState.showSignUp])
+
     return (
         <>
             <Modal {...data} />
@@ -31,4 +48,4 @@ const Signup = props => {
     )
 }
 
-export default Signup
+export default SignUp

@@ -1,6 +1,8 @@
 import Login from "../Login"
+import SignUp from "../SignUp"
 import Footer from "./Footer"
 import Header from "./Header"
+
 import "./index.css"
 
 const Layout = props => {
@@ -9,6 +11,7 @@ const Layout = props => {
             <Header />
             <div className="pt-36">{props.children}</div>
             <Login />
+            <SignUp />
             <Footer />
         </div>
     )

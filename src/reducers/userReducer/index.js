@@ -16,6 +16,21 @@ export const userReducer = (state, action) => {
                 showLogin: payload,
             }
 
+        case "USER_SIGNED_IN":
+            return {
+                ...state,
+                userProfile: {
+                    ...state.userProfile,
+                    fullName: payload.fullName,
+                },
+            }
+
+        case "SIGNUP_CLICKED":
+            return {
+                ...state,
+                showSignUp: payload,
+            }
+
         default:
             return state
     }
