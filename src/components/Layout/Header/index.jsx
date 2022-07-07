@@ -1,7 +1,6 @@
 import "./index.css"
 
 import SearchIcon from "../../../assets/images/search.webp"
-import noelle from "../../../assets/images/noelle.webp"
 
 import Icon from "../../UI/Icon"
 import TextArea from "../../UI/TextArea"
@@ -11,7 +10,18 @@ import AppContext from "../../../contexts/AppContext"
 import { Link } from "react-router-dom"
 
 const Header = () => {
-    const { globalState } = useContext(AppContext)
+    const { globalState, dispatch } = useContext(AppContext)
+
+    const onLogin = () => {
+        dispatch({ type: "LOGIN_CLICKED", payload: true })
+    }
+
+    const onLogout = () => {
+        dispatch({
+            type: "USER_LOGGED_IN",
+            payload: { fullName: "" },
+        })
+    }
 
     return (
         <div className="header-container fixed w-full bg-white">
@@ -49,8 +59,17 @@ const Header = () => {
                             <Link to="/settings">{"Settings"}</Link>
                         </h3>
 
-                        <h3 className="px-4 py-1 hover:underline cursor-pointer">
-                            <Link to="/Logout">{"Logout"}</Link>
+                        <h3
+                            onClick={
+                                globalState.userProfile.fullName
+                                    ? onLogout
+                                    : onLogin
+                            }
+                            className="px-4 py-1 hover:underline cursor-pointer"
+                        >
+                            {globalState.userProfile.fullName
+                                ? "Logout"
+                                : "Login"}
                         </h3>
                     </div>
                 </div>

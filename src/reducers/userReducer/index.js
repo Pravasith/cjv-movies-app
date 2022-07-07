@@ -9,6 +9,13 @@ export const userReducer = (state, action) => {
                     fullName: payload.fullName,
                 },
             }
+
+        case "LOGIN_CLICKED":
+            return {
+                ...state,
+                showLogin: payload,
+            }
+
         default:
             return state
     }

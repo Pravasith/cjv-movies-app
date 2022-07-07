@@ -6,11 +6,11 @@ export const useForm = initialValue => {
     return {
         values,
         handler: e => {
-            if (e.target.value.length >= 4)
-                setValues({
-                    ...values,
-                    [e.target.name]: e.target.value,
-                })
+            // if (e.target.value.length >= 4)
+            setValues({
+                ...values,
+                [e.target.name]: e.target.value,
+            })
         },
     }
 }

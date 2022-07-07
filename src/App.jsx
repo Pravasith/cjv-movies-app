@@ -6,6 +6,8 @@ import { useReducer } from "react"
 import userReducer from "./reducers/userReducer"
 import AppContext from "./contexts/AppContext"
 
+import userImage from "./assets/images/user.png"
+
 const RoutesComp = () => (
     <BrowserRouter>
         <Layout>
@@ -20,11 +22,10 @@ const RoutesComp = () => (
 function App() {
     const initialState = {
         userProfile: {
-            username: "noelleSilva",
-            thumbnail:
-                "https://i.pinimg.com/736x/c3/e4/24/c3e424e35083c15a4bd106c46fd051f5.jpg",
-            fullName: "Noelle Silva",
+            thumbnail: userImage,
+            fullName: "",
         },
+        showLogin: false,
     }
 
     const [globalState, dispatch] = useReducer(userReducer, initialState)
