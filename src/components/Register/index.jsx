@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react"
 import AppContext from "../../contexts/AppContext"
 import { useModal } from "../../hooks/useModal"
 
-const SignUp = props => {
+const Register = props => {
     const { globalState, dispatch } = useContext(AppContext)
 
     const data = {
@@ -48,4 +48,4 @@ const SignUp = props => {
     )
 }
 
-export default SignUp
+export default Register
