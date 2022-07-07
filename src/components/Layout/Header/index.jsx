@@ -1,9 +1,4 @@
-import "./index.css"
-
-import SearchIcon from "../../../assets/images/search.webp"
-
 import Icon from "../../UI/Icon"
-import TextArea from "../../UI/TextArea"
 import { useContext } from "react"
 import AppContext from "../../../contexts/AppContext"
 
@@ -28,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <div className="header-container fixed w-full bg-white">
+        <div className="header-container fixed w-full bg-white z-10">
             <div className="flex-col-center w-full">
                 <div className="flex-row-spaced w-full  border-black border-b-2">
                     <div className="flex-row-center px-4 py-1">
@@ -36,20 +31,12 @@ const Header = () => {
                     </div>
 
                     <div className="flex-row-center px-4 py-1">
-                        <Icon src={SearchIcon} />
-                        <div className="w-full">
-                            <TextArea
-                                rows={1}
-                                placeholder={"What's on your mind?"}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="flex-row-center px-4 py-1">
                         <Icon src={globalState.userProfile.thumbnail} />
-                        <p className="p-4">
-                            {globalState.userProfile.fullName}
-                        </p>
+                        {globalState.userProfile.fullName && (
+                            <p className="p-4">
+                                {globalState.userProfile.fullName}
+                            </p>
+                        )}
                     </div>
                 </div>
 

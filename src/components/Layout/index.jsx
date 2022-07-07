@@ -7,9 +7,9 @@ import "./index.css"
 
 const Layout = props => {
     return (
-        <div className="layout-container">
+        <div className="layout-container bg-gray-200">
             <Header />
-            <div className="pt-36">{props.children}</div>
+            <div className="py-24 px-6">{props.children}</div>
             <Login />
             <SignUp />
             <Footer />

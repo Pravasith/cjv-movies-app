@@ -2,7 +2,7 @@ import Image from "../UI/Image"
 
 import leftArrow from "../../assets/images/left.webp"
 import Icon from "../UI/Icon"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { movieBackdrops } from "../data"
 
 const SlideShow = props => {
@@ -36,12 +36,14 @@ const SlideShow = props => {
                             <div
                                 className="min-w-full relative"
                                 key={"movie-backdrop-" + i}
+                                // This is the background which takes image width and height
                             >
-                                <div className="absolute left-0 bottom-6  w-full text-white ">
-                                    <h1 className="text-center pb-1 bg-blue-400 rounded-b-xl">
+                                <div className="absolute left-0 bottom-6 w-full text-white ">
+                                    <h1 className="text-center py-4 bg-gradient-to-tr from-black rounded-b-xl">
                                         {movieMorph.title}
                                     </h1>
                                 </div>
+
                                 {<Image image={movieMorph} />}
                             </div>
                         )
