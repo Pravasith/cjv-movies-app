@@ -9,6 +9,7 @@ import userReducer from "./reducers/userReducer"
 import AppContext from "./contexts/AppContext"
 
 import userImage from "./assets/images/user.png"
+import DetailsPage from "./components/DetailsPage"
 
 const RoutesComp = () => (
     <BrowserRouter>
@@ -16,6 +17,7 @@ const RoutesComp = () => (
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/movies-tv-shows" element={<MoviesAndTVShows />} />
+                <Route path="/show-details/:id" element={<DetailsPage />} />
             </Routes>
         </Layout>
     </BrowserRouter>
