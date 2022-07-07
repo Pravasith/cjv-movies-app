@@ -440,6 +440,38 @@
             "slug": "the-good-place",
             "type": "tv-series",
             "title": "The Good Place"
+        },
+        {
+            "backdrop": "",
+            "cast": ["Katherine Parkinson", "Richard Ayoade"],
+            "classification": "18+",
+            "director": "Graham Linehan",
+            "genres": ["Biography", "Drama", "History"],
+            "id": "529c7379-ccfe-4003-a2ba-6c0a2ffd6704",
+            "imdb_rating": 8,
+            "length": "1h 58min",
+            "overview": "Companies rely on their IT departments to keep things running, and Reynholm Industries is no different. Relegated to the basement of its shining London office tower, the IT group, technicians Moss and Roy and department head Jen, does its best to keep things running with a minimum of effort and social contact. Work is a special challenge for Jen, for although her CV indicated a great deal of familiarity with computers, in reality, she doesn't have a clue.",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMjE5MThjMzAtNWVmNC00YThkLTlmNzktMTM3Yzk4YTZhMTgwXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+            "released_on": "2010-09-06T00:00:00",
+            "slug": "the-it-crowd",
+            "type": "tv-series",
+            "title": "The IT Crowd"
+        },
+        {
+            "backdrop": "",
+            "cast": ["Rami Malek", "Christian Slater"],
+            "classification": "18+",
+            "director": "Sam Esmail",
+            "genres": ["Biography", "Drama", "History"],
+            "id": "529c7379-ccfe-4003-a2ba-6c0a2ffd6704",
+            "imdb_rating": 8,
+            "length": "1h 58min",
+            "overview": "Young, anti-social computer programmer Elliot works as a cybersecurity engineer during the day, but at night he is a vigilante hacker. He is recruited by the mysterious leader of an underground group of hackers to join their organization. Elliot's task? Help bring down corporate America, including the company he is paid to protect, which presents him with a moral dilemma. Although he works for a corporation, his personal beliefs make it hard to resist the urge to take down the heads of multinational companies that he believes are running -- and ruining -- the world.",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMzgxMmQxZjQtNDdmMC00MjRlLTk1MDEtZDcwNTdmOTg0YzA2XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_FMjpg_UX1000_.jpg",
+            "released_on": "2010-09-06T00:00:00",
+            "slug": "mr-robot",
+            "type": "tv-series",
+            "title": "Mr Robot"
         }
     ]
 }
