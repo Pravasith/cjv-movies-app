@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react"
+import { API_URL } from "../../api"
 import Content from "../Content"
-import { movieBackdrops } from "../data"
+
 import ImagesGridSlider from "../ImagesGridSlider"
-import HeroSection from "../SlideShow"
+import HeroSection from "../HeroSection"
 
 // interface ImgData {
 //     title: string
@@ -17,15 +19,24 @@ import HeroSection from "../SlideShow"
 //     linkUrl?: string
 // }
 
-const imageData = movieBackdrops.map(movie => {
-    return {
-        title: movie.title,
-        url: movie.poster,
-        id: movie.id,
-    }
-})
+// const imageData = movieBackdrops.map(movie => {
+//     return {
+//         title: movie.title,
+//         url: movie.poster,
+//         id: movie.id,
+//     }
+// })
 
 const Home = () => {
+    const [imageData, setImageData] = useState()
+
+    useEffect(() => {
+        fetch(API_URL + "/videos")
+            .then(res => res.json())
+            .then(data => setImageData(data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div className="flex-col-center w-full">
             <div className="my-12 w-full">
@@ -33,20 +44,34 @@ const Home = () => {
             </div>
 
             <div className="my-12 w-full">
-                <ImagesGridSlider
-                    id={"featured-movies"}
-                    title={"Featured Movies"}
-                    pictures={imageData}
-                    maxSlides={6}
-                />
+                {imageData && (
+                    <ImagesGridSlider
+                        id={"featured-movies"}
+                        title={"Featured Movies"}
+                        pictures={imageData
+                            .filter(image => image.type === "movie")
+                            .map(image => ({
+                                ...image,
+                                url: "/show-details/" + image.slug,
+                            }))}
+                        maxSlides={6}
+                    />
+                )}
             </div>
             <div className="my-12 w-full">
-                <ImagesGridSlider
-                    id={"featured-tv-shows"}
-                    title={"Featured TV Shows"}
-                    pictures={imageData}
-                    maxSlides={6}
-                />
+                {imageData && (
+                    <ImagesGridSlider
+                        id={"featured-tv-shows"}
+                        title={"Featured TV Shows"}
+                        pictures={imageData
+                            .filter(image => image.type === "tv-series")
+                            .map(image => ({
+                                ...image,
+                                url: "/show-details/" + image.slug,
+                            }))}
+                        maxSlides={6}
+                    />
+                )}
             </div>
             <div className="my-12 w-full">
                 <Content />

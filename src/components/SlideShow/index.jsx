@@ -3,7 +3,7 @@ import Image from "../UI/Image"
 import leftArrow from "../../assets/images/left.webp"
 import Icon from "../UI/Icon"
 import { useState } from "react"
-import { movieBackdrops } from "../data"
+import { Link } from "react-router-dom"
 
 const SlideShow = props => {
     const [slideCount, setSlideCount] = useState(0)
@@ -26,25 +26,29 @@ const SlideShow = props => {
                     }}
                     className={` transition ease-in-out delay-150 flex-row-west w-full`}
                 >
-                    {movieBackdrops.map((movie, i) => {
+                    {props.movieBackdrops.map((movie, i) => {
                         const movieMorph = {
                             src: movie.backdrop,
                             title: movie.title,
+                            id: movie.slug,
                         }
 
                         return (
                             <div
                                 className="min-w-full relative"
                                 key={"movie-backdrop-" + i}
+
                                 // This is the background which takes image width and height
                             >
-                                <div className="absolute left-0 bottom-6 w-full text-white ">
-                                    <h1 className="text-center py-4 bg-gradient-to-tr from-black rounded-b-xl">
-                                        {movieMorph.title}
-                                    </h1>
-                                </div>
-
-                                {<Image image={movieMorph} />}
+                                <Link to={"/show-details/" + movieMorph.id}>
+                                    {" "}
+                                    <div className="absolute left-0 bottom-6 w-full text-white ">
+                                        <h1 className="text-center py-4 bg-gradient-to-tr from-black rounded-b-xl">
+                                            {movieMorph.title}
+                                        </h1>
+                                    </div>
+                                    {<Image image={movieMorph} />}{" "}
+                                </Link>
                             </div>
                         )
                     })}
@@ -66,7 +70,7 @@ const SlideShow = props => {
 
             <div className="absolute right-4 top-0 h-full">
                 <div className="flex-col-center h-full">
-                    {-slideCount < movieBackdrops.length - 1 && (
+                    {-slideCount < props.movieBackdrops.length - 1 && (
                         <Icon
                             src={leftArrow}
                             rotate

@@ -138,7 +138,7 @@ const ImagesGridSlider = props => {
                         <div className={`${styles.picWrap} relative`}>
                             <img
                                 className={`${styles.actualPic} absolute top-0 left-0`}
-                                src={item.url}
+                                src={item.poster}
                                 alt=""
                             />
                         </div>
@@ -150,31 +150,17 @@ const ImagesGridSlider = props => {
                 </div>
             )
 
-            if (props.linkUrl)
-                return (
-                    <Link
-                        to={props.linkUrl + item.id}
-                        key={"images-slider-key-" + "-" + i}
-                    >
-                        <a
-                            className={`${styles.slideWrap} relative`}
-                            style={slideWidthAndHeight}
-                            id={"individualSlide-" + props.id}
-                        >
-                            {child}
-                        </a>
-                    </Link>
-                )
-            else
-                return (
-                    <div
-                        className={`${styles.slideWrap} relative`}
-                        style={slideWidthAndHeight}
-                        id={"individualSlide-" + props.id}
-                    >
-                        {child}
-                    </div>
-                )
+            return (
+                <Link
+                    to={item.url}
+                    key={"images-slider-key-" + "-" + i}
+                    className={`${styles.slideWrap} relative`}
+                    style={slideWidthAndHeight}
+                    id={"individualSlide-" + props.id}
+                >
+                    {child}
+                </Link>
+            )
         })
     }
 

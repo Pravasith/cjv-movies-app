@@ -1,36 +1,49 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { movieBackdrops } from "../data"
+import { API_URL } from "../../api"
+
 import Image from "../UI/Image"
 
 const DetailsPage = props => {
-    const movie = movieBackdrops[0]
+    const [movie, setMovie] = useState()
 
     const { id } = useParams()
 
-    useState(() => {
-        fetch(`http://localhost:8000/blogs`)
-            // .then(res => res.json())
-            .then(data => console.log(data))
+    useEffect(() => {
+        fetch(API_URL + "/videos/?slug=" + id)
+            .then(res => res.json())
+            .then(data => {
+                setMovie(data[0])
+            })
             .catch(err => console.log(err))
     }, [])
 
     return (
         <div className="flex-row-center my-20">
             <div className="w-1/3">
-                <Image
-                    image={{
-                        src: "https://wookie.codesubmit.io/static/posters/d6822b7b-48bb-4b78-ad5e-9ba04c517ec8.jpg",
-                    }}
-                />
+                {movie && (
+                    <Image
+                        image={{
+                            src: movie.poster,
+                        }}
+                    />
+                )}
             </div>
 
             <div className="flex-col-west mx-12 w-1/3">
-                <h1 className="py-1">Top Gun</h1>
-                <p className="py-1">{movie.cast.join(", ")}</p>
-                <p>{"Directed by:  " + movie.director + id}</p>
-
-                <p className="my-4">{movie.overview}</p>
+                {movie && (
+                    <>
+                        <h1 className="py-1">{movie.title}</h1>
+                        <p className="py-1 font-semibold">
+                            {movie.cast.join(", ")}
+                        </p>
+                        <p className="py-1 font-semibold">
+                            {" "}
+                            {"Directed by:  " + movie.director}
+                        </p>
+                        <p className="my-4">{movie.overview}</p>
+                    </>
+                )}
             </div>
         </div>
     )
