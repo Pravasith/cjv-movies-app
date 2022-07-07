@@ -2,6 +2,8 @@ import "./App.css"
 import Layout from "./components/Layout"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Home from "./components/Home"
+import MoviesAndTVShows from "./components/MoviesAndTVShows"
+
 import { useReducer } from "react"
 import userReducer from "./reducers/userReducer"
 import AppContext from "./contexts/AppContext"
@@ -13,7 +15,7 @@ const RoutesComp = () => (
         <Layout>
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="/settings" element={<Settings />} /> */}
+                <Route path="/movies-tv-shows" element={<MoviesAndTVShows />} />
             </Routes>
         </Layout>
     </BrowserRouter>

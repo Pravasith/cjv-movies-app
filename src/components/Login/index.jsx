@@ -6,7 +6,7 @@ const Login = props => {
     const { globalState, dispatch } = useContext(AppContext)
 
     const data = {
-        title: "Login to MovieFlix",
+        title: "Login to VideoFlix",
         labels: [
             {
                 name: "username",

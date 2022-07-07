@@ -47,7 +47,9 @@ const Header = () => {
                         </h3>
 
                         <h3 className="px-4 py-1 hover:underline cursor-pointer">
-                            <Link to="/settings">{"Settings"}</Link>
+                            <Link to="/movies-tv-shows">
+                                {"Movies & TV Shows"}
+                            </Link>
                         </h3>
 
                         {!globalState.userProfile.fullName && (

@@ -27,24 +27,30 @@ const imageData = movieBackdrops.map(movie => {
 
 const Home = () => {
     return (
-        <div className="flex-col-center w-full ">
-            <HeroSection />
+        <div className="flex-col-center w-full">
+            <div className="my-12 w-full">
+                <HeroSection />
+            </div>
 
-            <ImagesGridSlider
-                id={"featured-movies"}
-                title={"Featured Movies"}
-                pictures={imageData}
-                maxSlides={4}
-            />
-
-            <ImagesGridSlider
-                id={"featured-tv-shows"}
-                title={"Featured TV Shows"}
-                pictures={imageData}
-                maxSlides={4}
-            />
-
-            <Content />
+            <div className="my-12 w-full">
+                <ImagesGridSlider
+                    id={"featured-movies"}
+                    title={"Featured Movies"}
+                    pictures={imageData}
+                    maxSlides={6}
+                />
+            </div>
+            <div className="my-12 w-full">
+                <ImagesGridSlider
+                    id={"featured-tv-shows"}
+                    title={"Featured TV Shows"}
+                    pictures={imageData}
+                    maxSlides={6}
+                />
+            </div>
+            <div className="my-12 w-full">
+                <Content />
+            </div>
         </div>
     )
 }

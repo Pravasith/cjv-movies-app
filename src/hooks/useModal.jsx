@@ -29,7 +29,7 @@ export const useModal = () => {
         return (
             <>
                 {!close && (
-                    <div className="fixed w-screen h-screen top-0">
+                    <div className="fixed w-screen h-screen top-0 z-20">
                         <div className="flex-col-center w-full h-full bg-black/30">
                             <form
                                 className="flex-col-center my-4 w-1/3 py-4 px-8 bg-white rounded-3xl relative"
