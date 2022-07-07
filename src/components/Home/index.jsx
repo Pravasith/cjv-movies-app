@@ -1,3 +1,4 @@
+import Content from "../Content"
 import { movieBackdrops } from "../data"
 import ImagesGridSlider from "../ImagesGridSlider"
 import HeroSection from "../SlideShow"
@@ -42,6 +43,8 @@ const Home = () => {
                 pictures={imageData}
                 maxSlides={4}
             />
+
+            <Content />
         </div>
     )
 }

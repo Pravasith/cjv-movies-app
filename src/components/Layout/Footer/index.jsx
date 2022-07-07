@@ -9,10 +9,10 @@ const Footer = () => {
     return (
         <div className="flex flex-row justify-between bg-black w-full py-20 px-10">
             <div className="flex flex-row justify-evenly items-center text-white w-2/3">
-                <h3>About us</h3>
-                <h3>Contact us</h3>
-                <h3>Careers</h3>
-                <h3>About us</h3>
+                <h3 className="cursor-pointer">About us</h3>
+                <h3 className="cursor-pointer">Contact us</h3>
+                <h3 className="cursor-pointer">Careers</h3>
+                <h3 className="cursor-pointer">About us</h3>
             </div>{" "}
             <div className="flex flex-row justify-evenly items-center w-1/3">
                 <Icon src={instagram} />
