@@ -52,3 +52,18 @@ export const getFeaturedMedia = async (dispatch, type) => {
         })
     }
 }
+
+export const getDetailedMedia = async (dispatch, id) => {
+    let response
+
+    try {
+        response = await api.GET(API_URLS.MEDIA + "/" + id)
+    } catch (error) {
+        console.error(error)
+    } finally {
+        dispatch({
+            type: "GET_DETAILED_MEDIA",
+            payload: response,
+        })
+    }
+}

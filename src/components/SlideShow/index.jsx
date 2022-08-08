@@ -30,7 +30,7 @@ const SlideShow = props => {
                         const movieMorph = {
                             src: movie.backdrop,
                             title: movie.title,
-                            id: movie.slug,
+                            id: movie.id,
                         }
 
                         return (
@@ -41,13 +41,12 @@ const SlideShow = props => {
                                 // This is the background which takes image width and height
                             >
                                 <Link to={"/show-details/" + movieMorph.id}>
-                                    {" "}
                                     <div className="absolute left-0 bottom-6 w-full text-white ">
                                         <h1 className="text-center py-4 bg-gradient-to-tr from-black rounded-b-xl">
                                             {movieMorph.title}
                                         </h1>
                                     </div>
-                                    {<Image image={movieMorph} />}{" "}
+                                    {<Image image={movieMorph} />}
                                 </Link>
                             </div>
                         )

@@ -1,8 +1,7 @@
 import { useContext } from "react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { getBackdrops } from "../../actions/backdropActions"
 import AppContext from "../../contexts/AppContext"
-import { API_URL } from "../../services/routes"
 import SlideShow from "../SlideShow"
 
 const HeroSection = props => {

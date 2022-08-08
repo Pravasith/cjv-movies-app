@@ -30,7 +30,7 @@ const Home = () => {
                         pictures={globalState.media?.featuredMovies.map(
                             image => ({
                                 ...image,
-                                url: "/show-details/" + image.slug,
+                                url: "/show-details/" + image.id,
                             })
                         )}
                         maxSlides={6}
@@ -46,7 +46,7 @@ const Home = () => {
                         pictures={globalState.media?.featuredTvShows.map(
                             image => ({
                                 ...image,
-                                url: "/show-details/" + image.slug,
+                                url: "/show-details/" + image.id,
                             })
                         )}
                         maxSlides={6}

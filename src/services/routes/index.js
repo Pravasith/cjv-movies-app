@@ -13,6 +13,8 @@ export const API_BASE_URLS = {
 }
 
 export const API_URLS = {
+    MEDIA: API_BASE_URLS.MEDIA,
+
     MOVIES: API_BASE_URLS.MEDIA + "/movies",
     TV_SHOWS: API_BASE_URLS.MEDIA + "/tv-shows",
 

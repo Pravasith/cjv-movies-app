@@ -4,6 +4,9 @@ import AppContext from "../../../contexts/AppContext"
 
 import { Link } from "react-router-dom"
 
+import SearchIcon from "../../../assets/images/search.webp"
+import TextArea from "../../UI/TextArea"
+
 const Header = () => {
     const { globalState, dispatch } = useContext(AppContext)
 
@@ -26,8 +29,18 @@ const Header = () => {
         <div className="header-container fixed w-full bg-white z-10">
             <div className="flex-col-center w-full">
                 <div className="flex-row-spaced w-full  border-black border-b-2">
-                    <div className="flex-row-center px-4 py-1">
+                    <div className="flex-row-west px-4 py-1">
                         <h3>VideoFlix</h3>
+                    </div>
+
+                    <div className="flex-row-center px-4 py-2 mx-10">
+                        <Icon src={SearchIcon} />
+                        <div className="w-80">
+                            <TextArea
+                                rows={1}
+                                placeholder={"What's on your mind?"}
+                            />
+                        </div>
                     </div>
 
                     <div className="flex-row-center px-4 py-1">

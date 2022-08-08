@@ -1,47 +1,48 @@
+import { useContext } from "react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { getDetailedMedia } from "../../actions/mediaActions"
+import AppContext from "../../contexts/AppContext"
 import { API_URL } from "../../services/routes"
 
 import Image from "../UI/Image"
 
 const DetailsPage = props => {
-    const [movie, setMovie] = useState()
+    const { globalState, dispatch } = useContext(AppContext)
 
     const { id } = useParams()
 
+    const mediaDetails = globalState?.media?.detailedMedia
+
     useEffect(() => {
-        fetch(API_URL + "/videos/?slug=" + id)
-            .then(res => res.json())
-            .then(data => {
-                setMovie(data[0])
-            })
-            .catch(err => console.log(err))
+        getDetailedMedia(dispatch, id)
     }, [])
 
     return (
         <div className="flex-row-center my-20">
             <div className="w-1/3">
-                {movie && (
+                {mediaDetails && (
                     <Image
                         image={{
-                            src: movie.poster,
+                            src: mediaDetails.smallPoster,
                         }}
                     />
                 )}
             </div>
 
             <div className="flex-col-west mx-12 w-1/3">
-                {movie && (
+                {mediaDetails && (
                     <>
-                        <h1 className="py-1">{movie.title}</h1>
-                        <p className="py-1 font-semibold">
-                            {movie.cast.join(", ")}
+                        <h1 className="py-1">{mediaDetails.name}</h1>
+
+                        <p className="my-4">{mediaDetails.synopsis}</p>
+
+                        <p className="py-1 font-bold hover:underline cursor-pointer">
+                            {"Buy for $" + mediaDetails.price}
                         </p>
-                        <p className="py-1 font-semibold">
-                            {" "}
-                            {"Directed by:  " + movie.director}
+                        <p className="py-1 font-bold hover:underline cursor-pointer">
+                            {"Rent for $" + mediaDetails.rentPrice}
                         </p>
-                        <p className="my-4">{movie.overview}</p>
                     </>
                 )}
             </div>

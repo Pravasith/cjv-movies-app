@@ -24,6 +24,12 @@ const mediaReducer = (state, action) => {
                 featuredTvShows: action.payload,
             }
 
+        case "GET_DETAILED_MEDIA":
+            return {
+                ...state,
+                detailedMedia: action.payload,
+            }
+
         default:
             return state
     }

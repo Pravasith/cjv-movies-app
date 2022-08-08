@@ -28,7 +28,7 @@ const MoviesAndTVShows = props => {
                         return (
                             <Link
                                 key={i + "-media"}
-                                to={"/show-details/" + item.slug}
+                                to={"/show-details/" + item.id}
                             >
                                 <div className="cursor-pointer hover:scale-105 transition-all">
                                     <Image image={{ src: item.smallPoster }} />
