@@ -32,6 +32,12 @@ const userReducer = (state, action) => {
                 showSignUp: payload,
             }
 
+        case "ADD_NEW_USER":
+            return {
+                ...state,
+                user: payload,
+            }
+
         default:
             return state
     }

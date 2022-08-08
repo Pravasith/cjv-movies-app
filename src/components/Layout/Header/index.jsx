@@ -5,16 +5,17 @@ import AppContext from "../../../contexts/AppContext"
 import { Link } from "react-router-dom"
 
 import SearchBar from "./SearchBar"
+import { showLoginModal, showSignUpModal } from "../../../actions/modalActions"
 
 const Header = () => {
     const { globalState, dispatch } = useContext(AppContext)
 
     const onLogin = () => {
-        dispatch({ type: "LOGIN_CLICKED", payload: true })
+        showLoginModal(dispatch, true)
     }
 
     const onSignUp = () => {
-        dispatch({ type: "SIGNUP_CLICKED", payload: true })
+        showSignUpModal(dispatch, true)
     }
 
     const onLogout = () => {

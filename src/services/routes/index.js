@@ -13,6 +13,8 @@ export const API_BASE_URLS = {
 }
 
 export const API_URLS = {
+    USERS: API_BASE_URLS.USERS,
+
     MEDIA: API_BASE_URLS.MEDIA,
     MEDIA_BY_NAME: API_BASE_URLS.MEDIA + "?name=",
 
