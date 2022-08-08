@@ -3,6 +3,7 @@ import Icon from "../Icon"
 const Button = props => {
     return (
         <button
+            onClick={props.onClick}
             type={props.type || "button"}
             className={`px-4 flex-row-center border-4 border-black rounded-full bg-black hover:border-blue-400 active:border-yellow-400 ${props.className}`}
         >

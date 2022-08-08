@@ -1,7 +1,12 @@
 const Icon = props => {
     return (
         <div
-            className={`p-1 cursor-pointer hover:bg-blue-400 active:bg-yellow-300 ${
+            className={`p-1 
+            ${
+                !props.noClick &&
+                "cursor-pointer hover:bg-blue-400 active:bg-yellow-300"
+            } 
+            ${
                 props.size === "lg"
                     ? "min-w-20 min-h-20 h-20 w-20 "
                     : props.size === "sm"

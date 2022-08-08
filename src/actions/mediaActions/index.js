@@ -67,3 +67,18 @@ export const getDetailedMedia = async (dispatch, id) => {
         })
     }
 }
+
+export const getSearchResults = async (dispatch, searchTerm) => {
+    let response
+
+    try {
+        response = await api.GET(API_URLS.MEDIA + "?name=" + searchTerm)
+    } catch (error) {
+        console.error(error)
+    } finally {
+        dispatch({
+            type: "GET_SEARCHED_MEDIA",
+            payload: response,
+        })
+    }
+}

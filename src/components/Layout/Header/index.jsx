@@ -4,8 +4,7 @@ import AppContext from "../../../contexts/AppContext"
 
 import { Link } from "react-router-dom"
 
-import SearchIcon from "../../../assets/images/search.webp"
-import TextArea from "../../UI/TextArea"
+import SearchBar from "./SearchBar"
 
 const Header = () => {
     const { globalState, dispatch } = useContext(AppContext)
@@ -30,18 +29,12 @@ const Header = () => {
             <div className="flex-col-center w-full">
                 <div className="flex-row-spaced w-full  border-black border-b-2">
                     <div className="flex-row-west px-4 py-1">
-                        <h3>VideoFlix</h3>
+                        <Link to={"/"}>
+                            <h3>VideoFlix</h3>
+                        </Link>
                     </div>
 
-                    <div className="flex-row-center px-4 py-2 mx-10">
-                        <Icon src={SearchIcon} />
-                        <div className="w-80">
-                            <TextArea
-                                rows={1}
-                                placeholder={"What's on your mind?"}
-                            />
-                        </div>
-                    </div>
+                    <SearchBar />
 
                     <div className="flex-row-center px-4 py-1">
                         <Icon src={globalState.user.userProfile.thumbnail} />

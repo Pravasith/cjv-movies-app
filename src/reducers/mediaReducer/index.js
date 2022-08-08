@@ -30,6 +30,12 @@ const mediaReducer = (state, action) => {
                 detailedMedia: action.payload,
             }
 
+        case "GET_SEARCHED_MEDIA":
+            return {
+                ...state,
+                searchedMedia: action.payload,
+            }
+
         default:
             return state
     }
