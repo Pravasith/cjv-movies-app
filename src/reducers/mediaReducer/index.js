@@ -1,4 +1,4 @@
-export const mediaReducer = (state, action) => {
+const mediaReducer = (state, action) => {
     switch (action.type) {
         case "GET_MOVIES":
             return {

@@ -9,10 +9,15 @@ const DOMAIN =
 export const API_BASE_URLS = {
     USERS: DOMAIN + "/users",
     MEDIA: DOMAIN + "/media",
+    BACKDROPS: DOMAIN + "/backdrops",
 }
 
 export const API_URLS = {
     MOVIES: API_BASE_URLS.MEDIA + "/movies",
+    TV_SHOWS: API_BASE_URLS.MEDIA + "/tv-shows",
+
     FEATURED_MOVIES: API_BASE_URLS.MEDIA + "/featured?type=movie",
     FEATURED_TV_SHOWS: API_BASE_URLS.MEDIA + "/featured?type=tv-series",
+
+    BACKDROPS: API_BASE_URLS.BACKDROPS,
 }

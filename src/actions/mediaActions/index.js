@@ -16,6 +16,21 @@ export const getMovies = async dispatch => {
     }
 }
 
+export const getTvShows = async dispatch => {
+    let response
+
+    try {
+        response = await api.GET(API_URLS.TV_SHOWS)
+    } catch (error) {
+        console.error(error)
+    } finally {
+        dispatch({
+            type: "GET_TV_SHOWS",
+            payload: response,
+        })
+    }
+}
+
 export const getFeaturedMedia = async (dispatch, type) => {
     let response
 

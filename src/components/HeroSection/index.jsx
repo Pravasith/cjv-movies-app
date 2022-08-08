@@ -1,17 +1,15 @@
+import { useContext } from "react"
 import { useEffect, useState } from "react"
+import { getBackdrops } from "../../actions/backdropActions"
+import AppContext from "../../contexts/AppContext"
 import { API_URL } from "../../services/routes"
 import SlideShow from "../SlideShow"
 
 const HeroSection = props => {
-    const [movieBackdrops, setMovieBackdrops] = useState()
+    const { globalState, dispatch } = useContext(AppContext)
 
     useEffect(() => {
-        fetch(API_URL + "/backdrops")
-            .then(res => res.json())
-            .then(data => {
-                setMovieBackdrops(data)
-            })
-            .catch(err => console.log(err))
+        getBackdrops(dispatch)
     }, [])
 
     return (
@@ -19,7 +17,9 @@ const HeroSection = props => {
             <h3 className="mb-4 text-2xl font-extrabold">
                 Most demanded movies
             </h3>
-            {movieBackdrops && <SlideShow movieBackdrops={movieBackdrops} />}
+            {globalState.backdrops && (
+                <SlideShow movieBackdrops={globalState.backdrops} />
+            )}
         </div>
     )
 }

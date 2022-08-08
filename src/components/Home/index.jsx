@@ -1,35 +1,12 @@
-import { useEffect, useState } from "react"
-import { API_BASE_URLS, API_URL, API_URLS } from "../../services/routes"
+import { useEffect } from "react"
 import Content from "../Content"
 
 import ImagesGridSlider from "../ImagesGridSlider"
 import HeroSection from "../HeroSection"
-import api from "../../services/api"
+
 import { getFeaturedMedia } from "../../actions/mediaActions"
 import { useContext } from "react"
 import AppContext from "../../contexts/AppContext"
-
-// interface ImgData {
-//     title: string
-//     url: string
-//     id: string
-// }
-
-// props: {
-//     id: string // unique id
-//     title: string
-//     pictures: ImgData[] // pictures array
-//     maxSlides: number
-//     linkUrl?: string
-// }
-
-// const imageData = movieBackdrops.map(movie => {
-//     return {
-//         title: movie.title,
-//         url: movie.poster,
-//         id: movie.id,
-//     }
-// })
 
 const Home = () => {
     const { globalState, dispatch } = useContext(AppContext)
@@ -39,13 +16,11 @@ const Home = () => {
         getFeaturedMedia(dispatch, "tv-shows")
     }, [])
 
-    useEffect(() => {
-        console.log(globalState)
-    }, [globalState])
-
     return (
         <div className="flex-col-center w-full">
-            <div className="my-12 w-full">{/* <HeroSection /> */}</div>
+            <div className="my-12 w-full">
+                <HeroSection />
+            </div>
 
             <div className="my-12 w-full">
                 {globalState.media?.featuredMovies && (
@@ -62,6 +37,7 @@ const Home = () => {
                     />
                 )}
             </div>
+
             <div className="my-12 w-full">
                 {globalState.media?.featuredTvShows && (
                     <ImagesGridSlider
@@ -77,6 +53,7 @@ const Home = () => {
                     />
                 )}
             </div>
+
             <div className="my-12 w-full">
                 <Content />
             </div>
