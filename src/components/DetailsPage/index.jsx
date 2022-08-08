@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { API_URL } from "../../api"
+import { API_URL } from "../../services/routes"
 
 import Image from "../UI/Image"
 

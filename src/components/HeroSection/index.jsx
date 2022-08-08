@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { API_URL } from "../../api"
+import { API_URL } from "../../services/routes"
 import SlideShow from "../SlideShow"
 
 const HeroSection = props => {

@@ -31,10 +31,10 @@ const Header = () => {
                     </div>
 
                     <div className="flex-row-center px-4 py-1">
-                        <Icon src={globalState.userProfile.thumbnail} />
-                        {globalState.userProfile.fullName && (
+                        <Icon src={globalState.user.userProfile.thumbnail} />
+                        {globalState.user.userProfile.fullName && (
                             <p className="p-4">
-                                {globalState.userProfile.fullName}
+                                {globalState.user.userProfile.fullName}
                             </p>
                         )}
                     </div>
@@ -52,10 +52,10 @@ const Header = () => {
                             </Link>
                         </h3>
 
-                        {!globalState.userProfile.fullName && (
+                        {!globalState.user.userProfile.fullName && (
                             <h3
                                 onClick={
-                                    globalState.userProfile.fullName
+                                    globalState.user.userProfile.fullName
                                         ? onLogout
                                         : onSignUp
                                 }
@@ -67,13 +67,13 @@ const Header = () => {
 
                         <h3
                             onClick={
-                                globalState.userProfile.fullName
+                                globalState.user.userProfile.fullName
                                     ? onLogout
                                     : onLogin
                             }
                             className="px-4 py-1 hover:underline cursor-pointer"
                         >
-                            {globalState.userProfile.fullName
+                            {globalState.user.userProfile.fullName
                                 ? "Logout"
                                 : "Login"}
                         </h3>

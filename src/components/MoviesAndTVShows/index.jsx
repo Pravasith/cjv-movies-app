@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { API_URL } from "../../api"
+import { API_URL } from "../../services/routes"
+
 import Image from "../UI/Image"
 
 const MoviesAndTVShows = props => {

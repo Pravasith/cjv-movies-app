@@ -1,11 +1,11 @@
 import { useState } from "react"
-import Icon from "../components/UI/Icon"
-import Button from "../components/UI/Button"
-import { useForm } from "./useForm"
+import Icon from "../../components/UI/Icon"
+import Button from "../../components/UI/Button"
+import useForm from "../useForm"
 
-import closeIcon from "../assets/images/close.webp"
+import closeIcon from "../../assets/images/close.webp"
 
-export const useModal = () => {
+const useModal = () => {
     const [close, setClose] = useState(true)
 
     const openModal = () => {
@@ -80,3 +80,5 @@ export const useModal = () => {
 
     return { Modal, openModal }
 }
+
+export default useModal

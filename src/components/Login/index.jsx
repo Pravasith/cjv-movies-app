@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import AppContext from "../../contexts/AppContext"
-import { useModal } from "../../hooks/useModal"
+import useModal from "../../hooks/useModal"
 
 const Login = props => {
     const { globalState, dispatch } = useContext(AppContext)
@@ -34,8 +34,8 @@ const Login = props => {
     const { Modal, openModal } = useModal()
 
     useEffect(() => {
-        if (globalState.showLogin) openModal()
-    }, [globalState.showLogin])
+        if (globalState.user.showLogin) openModal()
+    }, [globalState.user.showLogin])
 
     return (
         <>

@@ -5,11 +5,11 @@ import Home from "./components/Home"
 import MoviesAndTVShows from "./components/MoviesAndTVShows"
 
 import { useReducer } from "react"
-import userReducer from "./reducers/userReducer"
 import AppContext from "./contexts/AppContext"
 
 import userImage from "./assets/images/user.png"
 import DetailsPage from "./components/DetailsPage"
+import { globalReducer } from "./reducers"
 
 const RoutesComp = () => (
     <BrowserRouter>
@@ -25,14 +25,17 @@ const RoutesComp = () => (
 
 function App() {
     const initialState = {
-        userProfile: {
-            thumbnail: userImage,
-            fullName: "",
+        user: {
+            userProfile: {
+                thumbnail: userImage,
+                fullName: "",
+            },
+            showLogin: false,
         },
-        showLogin: false,
+        media: null,
     }
 
-    const [globalState, dispatch] = useReducer(userReducer, initialState)
+    const [globalState, dispatch] = useReducer(globalReducer, initialState)
 
     return (
         <div className="App">

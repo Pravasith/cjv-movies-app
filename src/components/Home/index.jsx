@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
-import { API_URL } from "../../api"
+import { API_BASE_URLS, API_URL, API_URLS } from "../../services/routes"
 import Content from "../Content"
 
 import ImagesGridSlider from "../ImagesGridSlider"
 import HeroSection from "../HeroSection"
+import api from "../../services/api"
+import { getFeaturedMedia } from "../../actions/mediaActions"
+import { useContext } from "react"
+import AppContext from "../../contexts/AppContext"
 
 // interface ImgData {
 //     title: string
@@ -28,47 +32,47 @@ import HeroSection from "../HeroSection"
 // })
 
 const Home = () => {
-    const [imageData, setImageData] = useState()
+    const { globalState, dispatch } = useContext(AppContext)
 
     useEffect(() => {
-        fetch(API_URL + "/videos")
-            .then(res => res.json())
-            .then(data => setImageData(data))
-            .catch(err => console.log(err))
+        getFeaturedMedia(dispatch, "movies")
+        getFeaturedMedia(dispatch, "tv-shows")
     }, [])
+
+    useEffect(() => {
+        console.log(globalState)
+    }, [globalState])
 
     return (
         <div className="flex-col-center w-full">
-            <div className="my-12 w-full">
-                <HeroSection />
-            </div>
+            <div className="my-12 w-full">{/* <HeroSection /> */}</div>
 
             <div className="my-12 w-full">
-                {imageData && (
+                {globalState.media?.featuredMovies && (
                     <ImagesGridSlider
                         id={"featured-movies"}
                         title={"Featured Movies"}
-                        pictures={imageData
-                            .filter(image => image.type === "movie")
-                            .map(image => ({
+                        pictures={globalState.media?.featuredMovies.map(
+                            image => ({
                                 ...image,
                                 url: "/show-details/" + image.slug,
-                            }))}
+                            })
+                        )}
                         maxSlides={6}
                     />
                 )}
             </div>
             <div className="my-12 w-full">
-                {imageData && (
+                {globalState.media?.featuredTvShows && (
                     <ImagesGridSlider
                         id={"featured-tv-shows"}
                         title={"Featured TV Shows"}
-                        pictures={imageData
-                            .filter(image => image.type === "tv-series")
-                            .map(image => ({
+                        pictures={globalState.media?.featuredTvShows.map(
+                            image => ({
                                 ...image,
                                 url: "/show-details/" + image.slug,
-                            }))}
+                            })
+                        )}
                         maxSlides={6}
                     />
                 )}

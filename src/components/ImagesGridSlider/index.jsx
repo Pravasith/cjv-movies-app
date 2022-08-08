@@ -32,8 +32,6 @@ const ImagesGridSlider = props => {
     const slidesWrapper = useRef()
     const currentSlideIteration = useRef(0)
 
-    useEffect(() => {}, [])
-
     useEffect(() => {
         const { maxSlides } = props
 
@@ -138,13 +136,13 @@ const ImagesGridSlider = props => {
                         <div className={`${styles.picWrap} relative`}>
                             <img
                                 className={`${styles.actualPic} absolute top-0 left-0`}
-                                src={item.poster}
-                                alt=""
+                                src={item.smallPoster}
+                                alt={item.name + "poster"}
                             />
                         </div>
 
                         <div className={`${styles.footer} flex-row-center`}>
-                            <p>{item.title}</p>
+                            <p>{item.name}</p>
                         </div>
                     </div>
                 </div>
