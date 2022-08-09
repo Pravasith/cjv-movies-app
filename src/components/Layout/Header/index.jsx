@@ -7,7 +7,6 @@ import { Link } from "react-router-dom"
 import SearchBar from "./SearchBar"
 import { showLoginModal, showSignUpModal } from "../../../actions/modalActions"
 import { userSignOut } from "../../../actions/userActions"
-import { useEffect } from "react"
 
 import userImage from "../../../assets/images/user.png"
 
@@ -38,16 +37,18 @@ const Header = () => {
 
                     <SearchBar />
 
-                    <div className="flex-row-center px-4 py-1">
-                        <Icon src={userImage} />
-                        {globalState.user && (
-                            <p className="p-4">
-                                {globalState.user.firstName +
-                                    " " +
-                                    globalState.user.lastName}
-                            </p>
-                        )}
-                    </div>
+                    <Link to={"/dashboard"}>
+                        <div className="flex-row-center px-4 py-1">
+                            <Icon src={userImage} />
+                            {globalState.user && (
+                                <p className="p-4">
+                                    {globalState.user.firstName +
+                                        " " +
+                                        globalState.user.lastName}
+                                </p>
+                            )}
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="flex-row-spaced w-full  border-white border-b-2">
@@ -55,6 +56,12 @@ const Header = () => {
                         <h3 className="px-4 py-1 hover:underline cursor-pointer">
                             <Link to="/">{"Home"}</Link>
                         </h3>
+
+                        {globalState.user && (
+                            <h3 className="px-4 py-1 hover:underline cursor-pointer">
+                                <Link to="/dashboard">{"Dashboard"}</Link>
+                            </h3>
+                        )}
 
                         <h3 className="px-4 py-1 hover:underline cursor-pointer">
                             <Link to="/movies-tv-shows">

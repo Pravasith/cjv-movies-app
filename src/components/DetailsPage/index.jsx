@@ -3,11 +3,10 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getDetailedMedia } from "../../actions/mediaActions"
 import AppContext from "../../contexts/AppContext"
-import { API_URL } from "../../services/routes"
 
 import Image from "../UI/Image"
 
-const DetailsPage = props => {
+const DetailsPage = () => {
     const { globalState, dispatch } = useContext(AppContext)
 
     const { id } = useParams()
