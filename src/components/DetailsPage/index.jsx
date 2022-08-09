@@ -19,19 +19,17 @@ const DetailsPage = () => {
 
     return (
         <div className="flex-row-center my-20">
-            <div className="w-1/3">
-                {mediaDetails && (
-                    <Image
-                        image={{
-                            src: mediaDetails.smallPoster,
-                        }}
-                    />
-                )}
-            </div>
+            {mediaDetails ? (
+                <>
+                    <div className="w-1/3">
+                        <Image
+                            image={{
+                                src: mediaDetails.smallPoster,
+                            }}
+                        />
+                    </div>
 
-            <div className="flex-col-west mx-12 w-1/3">
-                {mediaDetails && (
-                    <>
+                    <div className="flex-col-west mx-12 w-1/3">
                         <h1 className="py-1">{mediaDetails.name}</h1>
 
                         <p className="my-4">{mediaDetails.synopsis}</p>
@@ -42,9 +40,11 @@ const DetailsPage = () => {
                         <p className="py-1 font-bold hover:underline cursor-pointer">
                             {"Rent for $" + mediaDetails.rentPrice}
                         </p>
-                    </>
-                )}
-            </div>
+                    </div>
+                </>
+            ) : (
+                <h1>Loading...</h1>
+            )}
         </div>
     )
 }
