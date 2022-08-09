@@ -1,41 +1,53 @@
+import { useState } from "react"
 import { useContext, useEffect } from "react"
+import { authUser } from "../../actions/userActions"
 import AppContext from "../../contexts/AppContext"
 import useModal from "../../hooks/useModal"
 
 const Login = props => {
     const { globalState, dispatch } = useContext(AppContext)
+    const [errorMessage, setErrorMessage] = useState()
+    const [successMessage, setSuccessMessage] = useState()
+
+    const submitHandler = async values => {
+        if (!!values.email && !!values.password) {
+            const credentials = values
+            const response = await authUser(dispatch, credentials)
+
+            if (!response.body) {
+                setErrorMessage(response.message)
+            } else {
+                setSuccessMessage("User logged in successfully")
+                localStorage.setItem("user", globalState.user)
+            }
+        } else {
+            setErrorMessage("Please check all the fields again and retry.")
+        }
+    }
 
     const data = {
         title: "Login to VideoFlix",
         labels: [
             {
-                name: "username",
-                title: "Enter Username",
+                name: "email",
+                title: "Enter registered email",
             },
             {
                 name: "password",
                 title: "Enter password",
             },
         ],
-        submitHandler: values => {
-            dispatch({
-                type: "USER_LOGGED_IN",
-                payload: { fullName: values.username },
-            })
-        },
-        onCloseModal: () => {
-            dispatch({
-                type: "LOGIN_CLICKED",
-                payload: false,
-            })
-        },
+        submitHandler,
+        // onCloseModal: () => {},
+        errorMessage,
+        successMessage,
     }
 
     const { Modal, openModal } = useModal()
 
     useEffect(() => {
-        if (globalState.user.showLogin) openModal()
-    }, [globalState.user.showLogin])
+        if (globalState.modal?.showLogin) openModal()
+    }, [globalState.modal?.showLogin])
 
     return (
         <>

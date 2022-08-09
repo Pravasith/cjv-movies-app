@@ -11,7 +11,7 @@ export const getBackdrops = async dispatch => {
     } finally {
         dispatch({
             type: "GET_BACKDROPS",
-            payload: response,
+            payload: response.body,
         })
     }
 }

@@ -25,11 +25,6 @@ const Register = props => {
         } else {
             setErrorMessage("Please check all the fields again and retry.")
         }
-
-        // dispatch({
-        //     type: "USER_SIGNED_IN",
-        //     payload: { fullName: values.fullName },
-        // })
     }
 
     const data = {
@@ -53,12 +48,6 @@ const Register = props => {
             },
         ],
         submitHandler,
-        onCloseModal: () => {
-            // dispatch({
-            //     type: "SIGNUP_CLICKED",
-            //     payload: false,
-            // })
-        },
         errorMessage,
         successMessage,
     }
@@ -66,8 +55,8 @@ const Register = props => {
     const { Modal, openModal } = useModal()
 
     useEffect(() => {
-        if (globalState.user.showSignUp) openModal()
-    }, [globalState.user.showSignUp])
+        if (globalState.modal?.showSignUp) openModal()
+    }, [globalState.modal?.showSignUp])
 
     return (
         <>

@@ -11,7 +11,7 @@ export const getMovies = async dispatch => {
     } finally {
         dispatch({
             type: "GET_MOVIES",
-            payload: response,
+            payload: response.body,
         })
     }
 }
@@ -26,7 +26,7 @@ export const getTvShows = async dispatch => {
     } finally {
         dispatch({
             type: "GET_TV_SHOWS",
-            payload: response,
+            payload: response.body,
         })
     }
 }
@@ -48,7 +48,7 @@ export const getFeaturedMedia = async (dispatch, type) => {
                 type === "movies"
                     ? "GET_FEATURED_MOVIES"
                     : "GET_FEATURED_TV_SHOWS",
-            payload: response,
+            payload: response.body,
         })
     }
 }
@@ -63,7 +63,7 @@ export const getDetailedMedia = async (dispatch, id) => {
     } finally {
         dispatch({
             type: "GET_DETAILED_MEDIA",
-            payload: response,
+            payload: response.body,
         })
     }
 }
@@ -78,7 +78,7 @@ export const getSearchResults = async (dispatch, searchTerm) => {
     } finally {
         dispatch({
             type: "GET_SEARCHED_MEDIA",
-            payload: response,
+            payload: response.body,
         })
     }
 }

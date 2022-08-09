@@ -15,7 +15,7 @@ const GET = url => {
 
         Axios.get(url, requestData)
             .then(res => {
-                data = res.data.body
+                data = res.data
                 resolve(data)
             })
             .catch(e => {
@@ -31,7 +31,7 @@ const POST = (url, data) => {
 
         Axios.post(url, data, requestData)
             .then(res => {
-                responseData = res.data.body
+                responseData = res.data
                 resolve(responseData)
             })
             .catch(e => {

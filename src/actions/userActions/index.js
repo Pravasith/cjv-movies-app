@@ -6,12 +6,37 @@ export const addUser = async (dispatch, user) => {
 
     try {
         response = await api.POST(API_URLS.USERS, user)
+        dispatch({
+            type: "ADD_NEW_USER",
+            payload: response.body,
+        })
     } catch (error) {
         console.error(error)
     } finally {
-        dispatch({
-            type: "ADD_NEW_USER",
-            payload: response,
-        })
+        return response
     }
+}
+
+export const authUser = async (dispatch, user) => {
+    let response
+
+    try {
+        response = await api.POST(API_URLS.AUTH_USER, user)
+        dispatch({
+            type: "AUTH_USER",
+            payload: response.body,
+        })
+    } catch (error) {
+        console.error(error.response.data)
+        response = error.response.data
+    } finally {
+        return response
+    }
+}
+
+export const userSignOut = dispatch => {
+    dispatch({
+        type: "USER_SIGN_OUT",
+        payload: null,
+    })
 }

@@ -6,24 +6,29 @@ import { Link } from "react-router-dom"
 
 import SearchBar from "./SearchBar"
 import { showLoginModal, showSignUpModal } from "../../../actions/modalActions"
+import { userSignOut } from "../../../actions/userActions"
+import { useEffect } from "react"
+
+import userImage from "../../../assets/images/user.png"
 
 const Header = () => {
     const { globalState, dispatch } = useContext(AppContext)
 
     const onLogin = () => {
-        showLoginModal(dispatch, true)
+        showLoginModal(dispatch)
     }
 
     const onSignUp = () => {
-        showSignUpModal(dispatch, true)
+        showSignUpModal(dispatch)
     }
 
     const onLogout = () => {
-        dispatch({
-            type: "USER_LOGGED_IN",
-            payload: { fullName: "" },
-        })
+        userSignOut(dispatch)
     }
+
+    useEffect(() => {
+        console.log(globalState)
+    }, [globalState])
 
     return (
         <div className="header-container fixed w-full bg-white z-10">
@@ -38,10 +43,12 @@ const Header = () => {
                     <SearchBar />
 
                     <div className="flex-row-center px-4 py-1">
-                        <Icon src={globalState.user.userProfile.thumbnail} />
-                        {globalState.user.userProfile.fullName && (
+                        <Icon src={userImage} />
+                        {globalState.user && (
                             <p className="p-4">
-                                {globalState.user.userProfile.fullName}
+                                {globalState.user.firstName +
+                                    " " +
+                                    globalState.user.lastName}
                             </p>
                         )}
                     </div>
@@ -59,13 +66,9 @@ const Header = () => {
                             </Link>
                         </h3>
 
-                        {!globalState.user.userProfile.fullName && (
+                        {!globalState.user && (
                             <h3
-                                onClick={
-                                    globalState.user.userProfile.fullName
-                                        ? onLogout
-                                        : onSignUp
-                                }
+                                onClick={onSignUp}
                                 className="px-4 py-1 hover:underline cursor-pointer"
                             >
                                 {"Register"}
@@ -73,16 +76,10 @@ const Header = () => {
                         )}
 
                         <h3
-                            onClick={
-                                globalState.user.userProfile.fullName
-                                    ? onLogout
-                                    : onLogin
-                            }
+                            onClick={globalState.user ? onLogout : onLogin}
                             className="px-4 py-1 hover:underline cursor-pointer"
                         >
-                            {globalState.user.userProfile.fullName
-                                ? "Logout"
-                                : "Login"}
+                            {globalState.user ? "Logout" : "Login"}
                         </h3>
                     </div>
                 </div>

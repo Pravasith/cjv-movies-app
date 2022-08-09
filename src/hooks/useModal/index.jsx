@@ -90,7 +90,7 @@ const useModal = () => {
                                     <Button
                                         className={"my-2"}
                                         type={"submit"}
-                                        text={"Change"}
+                                        text={props.submitText || "Submit"}
                                     />
                                 </form>
                             )}

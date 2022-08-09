@@ -7,7 +7,6 @@ import MoviesAndTVShows from "./components/MoviesAndTVShows"
 import { useReducer } from "react"
 import AppContext from "./contexts/AppContext"
 
-import userImage from "./assets/images/user.png"
 import DetailsPage from "./components/DetailsPage"
 import { globalReducer } from "./reducers"
 
@@ -25,13 +24,7 @@ const RoutesComp = () => (
 
 function App() {
     const initialState = {
-        user: {
-            userProfile: {
-                thumbnail: userImage,
-                fullName: "",
-            },
-            showLogin: false,
-        },
+        user: null,
         media: null,
     }
 
