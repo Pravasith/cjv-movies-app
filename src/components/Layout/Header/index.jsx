@@ -26,10 +26,6 @@ const Header = () => {
         userSignOut(dispatch)
     }
 
-    useEffect(() => {
-        console.log(globalState)
-    }, [globalState])
-
     return (
         <div className="header-container fixed w-full bg-white z-10">
             <div className="flex-col-center w-full">

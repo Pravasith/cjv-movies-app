@@ -35,6 +35,7 @@ export const authUser = async (dispatch, user) => {
 }
 
 export const userSignOut = dispatch => {
+    localStorage.removeItem("user")
     dispatch({
         type: "USER_SIGN_OUT",
         payload: null,

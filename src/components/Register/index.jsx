@@ -1,6 +1,4 @@
-import { useState } from "react"
-import { useContext, useEffect } from "react"
-import { showSignUpModal } from "../../actions/modalActions"
+import { useContext, useEffect, useState } from "react"
 import { addUser } from "../../actions/userActions"
 import AppContext from "../../contexts/AppContext"
 import useModal from "../../hooks/useModal"
@@ -9,6 +7,11 @@ const Register = props => {
     const { globalState, dispatch } = useContext(AppContext)
     const [errorMessage, setErrorMessage] = useState()
     const [successMessage, setSuccessMessage] = useState()
+
+    useEffect(() => {
+        globalState.user &&
+            localStorage.setItem("user", JSON.stringify(globalState.user))
+    }, [globalState.user])
 
     const submitHandler = values => {
         if (
@@ -21,7 +24,6 @@ const Register = props => {
             addUser(dispatch, user)
 
             setSuccessMessage("User registered successfully")
-            localStorage.setItem("user", globalState.user)
         } else {
             setErrorMessage("Please check all the fields again and retry.")
         }
