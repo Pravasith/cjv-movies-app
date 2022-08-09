@@ -3,22 +3,13 @@ const userReducer = (state, action) => {
 
     switch (action.type) {
         case "ADD_NEW_USER":
-            return {
-                ...state,
-                user: payload,
-            }
+            return payload
 
         case "AUTH_USER":
-            return {
-                ...state,
-                user: payload,
-            }
+            return payload
 
         case "USER_SIGN_OUT":
-            return {
-                ...state,
-                user: payload,
-            }
+            return null
 
         default:
             return state

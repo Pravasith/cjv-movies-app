@@ -24,7 +24,7 @@ const RoutesComp = () => (
 
 function App() {
     const initialState = {
-        user: null,
+        user: localStorage.getItem("user"),
         media: null,
     }
 
